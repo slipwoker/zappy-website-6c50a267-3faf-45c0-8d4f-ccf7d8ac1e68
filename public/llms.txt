@@ -46,6 +46,9 @@ https://example.com/category/:slug
 https://example.com/thank-you
 תודה רבה על פנייתך לחברת AYS Everything Green. קיבלנו את הודעתך בנושא אביזרי אינסטלציה וניקוז ונחזור אליך בהקדם האפשרי.
 
+### Page
+https://example.com/stores
+
 ## Legal & Policy
 
 ### Privacy Policy
