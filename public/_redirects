@@ -1,10 +1,10 @@
 # Clean URL redirects for Render static hosting
-# Generated: 2026-07-02T17:47:17.559Z
+# Generated: 2026-07-02T17:47:55.374Z
 # NOTE: Render uses render.yaml for routing, not _redirects (that is Netlify)
 # This file is kept for reference only
 
 /drainage-advantages  /drainage-advantages.html  200!
-/jordan-system  /jordan-system.html  200!
+/jordanian-system  /jordanian-system.html  200!
 /technical-guidance  /technical-guidance.html  200!
 /about  /about.html  200!
 /contact  /contact.html  200!

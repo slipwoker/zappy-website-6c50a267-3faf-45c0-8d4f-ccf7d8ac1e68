@@ -13240,6 +13240,27 @@ div[id*="mic-access-tool-box"] button[class*="reset"] * {
 #featured-categories {
   display: none !important;
 }
+
+.nav-menu li.menu-item-has-children.zappy-products-dropdown {
+  display: none !important;
+}
+
+.nav-container .nav-search-box, .nav-container .nav-search-toggle, .navbar #mobile-search-toggle {
+  display: none !important;
+}
+
+.nav-container .nav-ecommerce-icons.nav-icons-left,
+.nav-container .nav-ecommerce-icons.nav-icons-right {
+  display: none !important;
+}
+
+.navbar .nav-search-box {
+  display: none !important;
+}
+
+.navbar .nav-ecommerce-icons.nav-icons-left {
+  display: none !important;
+}
 /* mobile-submenu-overflow-fix */
 @media (max-width: 768px) {
   .navbar .sub-menu.mobile-expanded,
