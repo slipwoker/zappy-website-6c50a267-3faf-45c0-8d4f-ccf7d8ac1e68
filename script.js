@@ -12043,6 +12043,86 @@ window.onload = function() {
 })();
 /* ZAPPY_BLOCK_RUNTIME_END */
 
+/* ZAPPY_CUSTOM_JS_START:5818701c5c63 */
+(function () {
+  function __zappyCustomInit() {
+    try {
+(function() {
+  var section = document.querySelector('.find-A-Branch-block-section');
+  if (!section) return;
+
+  var input = section.querySelector('#city-search-input');
+  var btn = section.querySelector('#city-search-button');
+  var grid = section.querySelector('#store-results-grid');
+  var noResults = section.querySelector('#store-no-results');
+  if (!input || !btn || !grid) return;
+
+  var cards = grid.querySelectorAll('.find-store-card');
+
+  // Show all stores on load
+  cards.forEach(function(card) { card.style.display = ''; });
+  if (noResults) noResults.style.display = 'none';
+
+  function filter(cityName) {
+    cityName = cityName.trim();
+    if (!cityName) {
+      // Show all
+      cards.forEach(function(card) { card.style.display = ''; });
+      grid.style.display = '';
+      if (noResults) noResults.style.display = 'none';
+      return;
+    }
+    var found = 0;
+    cards.forEach(function(card) {
+      var c = card.getAttribute('data-city') || '';
+      if (c.indexOf(cityName) !== -1) {
+        card.style.display = '';
+        found++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    if (found > 0) {
+      grid.style.display = '';
+      if (noResults) noResults.style.display = 'none';
+    } else {
+      grid.style.display = 'none';
+      if (noResults) noResults.style.display = '';
+    }
+  }
+
+  btn.addEventListener('click', function() { filter(input.value); });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') filter(input.value);
+  });
+
+  var timer;
+  input.addEventListener('input', function() {
+    clearTimeout(timer);
+    var val = input.value.trim();
+    if (val.length >= 2) {
+      timer = setTimeout(function() { filter(val); }, 350);
+    } else if (val.length === 0) {
+      timer = setTimeout(function() {
+        cards.forEach(function(card) { card.style.display = ''; });
+        grid.style.display = '';
+        if (noResults) noResults.style.display = 'none';
+      }, 200);
+    }
+  });
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:5818701c5c63 */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
