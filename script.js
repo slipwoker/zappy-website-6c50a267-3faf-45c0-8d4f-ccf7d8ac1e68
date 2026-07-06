@@ -5844,7 +5844,12 @@ function stripHtmlToText(html) {
             var detailLabels = document.querySelectorAll('.order-success-detail-label');
             var courseTitle = orderData.primaryCourseName || (orderData.courseNames && orderData.courseNames[0]) || '';
             if (titleEl) {
-              titleEl.innerHTML = getEcomText('thankYouOrder', t.thankYouOrder || 'Thank you for enrolling in') + ' <span class="order-number-inline" id="order-number-value">' + (courseTitle || getEcomText('yourCourse', 'your course')) + '</span>';
+              titleEl.textContent = getEcomText('thankYouOrder', t.thankYouOrder || 'Thank you for enrolling in') + ' ';
+              var courseSpan = document.createElement('span');
+              courseSpan.className = 'order-number-inline';
+              courseSpan.id = 'order-number-value';
+              courseSpan.textContent = courseTitle || getEcomText('yourCourse', 'your course');
+              titleEl.appendChild(courseSpan);
             }
             if (detailLabels[0]) detailLabels[0].textContent = getEcomText('transactionDate', t.transactionDate || t.orderDate || 'Date');
             if (detailLabels[1]) detailLabels[1].textContent = getEcomText('paymentMethod', t.paymentMethod || 'Payment Method');
